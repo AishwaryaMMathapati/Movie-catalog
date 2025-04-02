@@ -1,0 +1,378 @@
+/* General Styles */
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* .card-column {
+    margin-bottom: 20px;
+} */
+
+/* Flexbox to align cards equally */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Card Container */
+/* .card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    cursor: pointer;
+}
+
+/* Card Image */
+/* .card-img-top {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    position: relative;
+/* } */ 
+
+
+/* Movie Title Overlay */
+/* .card-title {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 5px;
+} */
+
+/* Card Body */
+/* .card-body {
+    flex-grow: 1;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+} */
+
+/* .card-text {
+    font-size: 0.875rem;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    height: 100%;
+    overflow: hidden;
+} */
+
+
+/* Movie Card Styling */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 450px;
+    overflow: hidden;
+    border: none;
+    border-radius: 12px;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+    color: white;
+    padding: 20px;
+    transition: height 0.3s ease;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.card:hover .card__overlay {
+    height: 70%;
+}
+
+.card__title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.card__rating, .card__runtime {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.card__description {
+    font-size: 0.85rem;
+    display: -webkit-box;
+    display: box; /* Standard property */
+    -webkit-line-clamp: 3;
+    line-clamp: 3; /* Standard property */
+    -webkit-box-orient: vertical;
+    box-orient: vertical; /* Standard property */
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    margin-top: 8px;
+}
+
+
+.card:hover .card__description {
+    opacity: 1;
+}
+
+/* Description Modal */
+/* .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 60%;
+    max-width: 800px;
+    position: relative;
+}
+
+.modal-content .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+} */
+
+
+/* Movie Details Modal */
+.modal {
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.modal-content {
+    background-color: #222;
+    color: white;
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    max-width: 700px;
+    width: 90%;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+}
+
+.modal-header {
+    position: relative;
+    padding: 0;
+    height: 300px;
+    overflow: hidden;
+}
+
+.modal-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+.modal-title-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.modal-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.modal-body {
+    padding: 25px;
+}
+
+.modal-release-date {
+    font-size: 1rem;
+    color: #e50914;
+    margin-bottom: 15px;
+}
+
+.modal-overview {
+    line-height: 1.6;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    border: none;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+.close:hover {
+    background-color: rgba(229, 9, 20, 0.7);
+}   
+
+/* Button Styling */
+button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:active {
+    background-color: #004085;
+}
+
+/* General Styling */
+body {
+    background-color: #121212;
+    color: #e1e1e1;
+    font-family: 'Libre Baskerville', serif;
+}
+
+.container {
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+/* Header Styling */
+.caveat-heading {
+    font-family: 'Protest Revolution', sans-serif;
+    font-size: 3.5rem;
+    color: #e50914;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+}
+
+/* Search Controls */
+.input-group {
+    margin-bottom: 30px;
+}
+
+#searchInput {
+    border-radius: 25px 0 0 25px;
+    padding: 12px 20px;
+    border: none;
+    background-color: #333;
+    color: white;
+}
+
+#searchInput::placeholder {
+    color: #aaa;
+}
+
+#searchButton {
+    border-radius: 0 25px 25px 0;
+    background-color: #e50914;
+    border: none;
+    padding: 0 25px;
+}
+
+/* Category Buttons */
+.btn-success, .btn-warning {
+    border-radius: 25px;
+    padding: 8px 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-success {
+    background-color: #1db954;
+}
+
+.btn-warning {
+    background-color: #ff9f1c;
+}
+
+.btn-success:hover, .btn-warning:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+    background-color: #080808 !important;
+    padding: 20px 0 !important;
+}
+
+footer p {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+footer ul {
+    margin-top: 10px;
+}
+
+footer a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #e50914 !important;
+    text-decoration: none;
+}
+
+

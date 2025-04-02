@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineHive - Discover Movies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lobster&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Protest+Revolution&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="text-center mb-5">
+            <h1 class="caveat-heading">CineHive</h1>
+            <p class="text-muted mb-4">Your gateway to the world of cinema</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="input-group mb-4">
+                        <input type="text" id="searchInput" class="form-control" placeholder="Search for a movie...">
+                        <button id="searchButton" class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="d-flex justify-content-center gap-3 mb-4">
+                <button id="nowPlayingButton" class="btn btn-success">Now Playing</button>
+                <button id="topRatedButton" class="btn btn-warning">Top Rated</button>
+            </div>
+        </header>
+    
+        <!-- Movie Results Container -->
+        <div class="row results g-4">
+            <!-- Cards will be dynamically inserted here -->
+        </div>
+        
+        <!-- No Results Message -->
+        <div id="noResults" class="text-center py-5 d-none">
+            <h3>No movies found</h3>
+            <p>Try a different search term or category</p>
+        </div>
+        
+        <!-- Loading Indicator -->
+        <div id="loading" class="text-center py-5 d-none">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="mt-2">Fetching movies...</p>
+        </div>
+    </div>
+    
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <div class="container">
+            <p class="mb-2">CineHive &copy; 2023 All Rights Reserved</p>
+            <ul class="list-inline mb-0">
+                <li class="list-inline-item"><a href="#" class="text-white">About</a></li>
+                <li class="list-inline-item"><a href="#" class="text-white">Contact</a></li>
+                <li class="list-inline-item"><a href="#" class="text-white">Privacy</a></li>
+                <li class="list-inline-item"><a href="#" class="text-white">Terms</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
