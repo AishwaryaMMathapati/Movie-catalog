@@ -1,91 +1,36 @@
 /* General Styles */
 body {
-    background-color: #f8f9fa;
-    font-family: Arial, sans-serif;
-    padding: 0;
+    background-color: #121212;
+    color: #e1e1e1;
+    font-family: 'Arial', sans-serif;
     margin: 0;
+    padding: 0;
 }
 
 .container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: auto;
     padding: 20px;
 }
 
-/* .card-column {
-    margin-bottom: 20px;
-} */
-
-/* Flexbox to align cards equally */
+/* Netflix-Style Movie Row */
 .row {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
 }
 
-/* Card Container */
-/* .card {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
-    cursor: pointer;
-}
-
-/* Card Image */
-/* .card-img-top {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    position: relative;
-/* } */ 
-
-
-/* Movie Title Overlay */
-/* .card-title {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    font-size: 1.5rem;
-    color: white;
-    font-weight: bold;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 10px;
-    border-radius: 5px;
-} */
-
-/* Card Body */
-/* .card-body {
-    flex-grow: 1;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-} */
-
-/* .card-text {
-    font-size: 0.875rem;
-    line-height: 1.4;
-    margin-bottom: 10px;
-    height: 100%;
-    overflow: hidden;
-} */
-
-
 /* Movie Card Styling */
 .card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 450px;
+    width: 200px;
     overflow: hidden;
     border: none;
     border-radius: 12px;
     position: relative;
+    cursor: pointer;
+    background-color: #222;
 }
 
 .card:hover {
@@ -99,6 +44,7 @@ body {
     object-fit: cover;
 }
 
+/* Overlay */
 .card__overlay {
     position: absolute;
     bottom: 0;
@@ -107,92 +53,76 @@ body {
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
     color: white;
     padding: 20px;
-    transition: height 0.3s ease;
+    transition: height 0.3s ease, opacity 0.3s ease;
     height: 40%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    overflow: hidden;
+    opacity: 1;
 }
 
 .card:hover .card__overlay {
     height: 70%;
+    opacity: 1;
 }
 
+/* Movie Title */
 .card__title {
     font-size: 1.3rem;
     font-weight: bold;
     margin-bottom: 8px;
+    white-space: nowrap; /* Prevents text from breaking */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Shows "..." if text is too long */
+    max-width: 100%;
 }
 
+/* Rating & Runtime */
 .card__rating, .card__runtime {
     font-size: 0.9rem;
     margin-bottom: 5px;
 }
 
+/* Movie Description */
 .card__description {
     font-size: 0.85rem;
     display: -webkit-box;
-    display: box; /* Standard property */
-    -webkit-line-clamp: 3;
-    line-clamp: 3; /* Standard property */
+    -webkit-line-clamp: 3; /* Limits text to 3 lines */
     -webkit-box-orient: vertical;
-    box-orient: vertical; /* Standard property */
     overflow: hidden;
     opacity: 0;
-    transition: opacity 0.3s ease;
-    margin-top: 8px;
+    transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
+    max-height: 0;
 }
-
 
 .card:hover .card__description {
     opacity: 1;
+    max-height: 100px; /* Expands text smoothly */
 }
 
-/* Description Modal */
-/* .modal {
+/* Movie Details Modal */
+.modal {
+    background-color: rgba(0, 0, 0, 0.85);
     display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
     justify-content: center;
     align-items: center;
     z-index: 9999;
 }
 
 .modal-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 60%;
-    max-width: 800px;
-    position: relative;
-}
-
-.modal-content .close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 1.5rem;
-    cursor: pointer;
-} */
-
-
-/* Movie Details Modal */
-.modal {
-    background-color: rgba(0, 0, 0, 0.85);
-}
-
-.modal-content {
     background-color: #222;
     color: white;
-    border-radius: 12px;
+    border-radius: 15px;
     border: none;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     max-width: 700px;
-    width: 90%;
+    width: 100%;
     position: relative;
     overflow: hidden;
     padding: 0;
@@ -205,12 +135,16 @@ body {
     overflow: hidden;
 }
 
+/* Fix for Enlarged Movie Poster in Modal */
 .modal-header img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    filter: brightness(0.7);
+    max-height: 300px; /* Ensures the poster doesn't expand too much */
+    object-fit: contain; /* Prevents unwanted zoom-in */
+    display: block;
+    margin: auto;
 }
+
 
 .modal-title-container {
     position: absolute;
@@ -241,6 +175,7 @@ body {
     line-height: 1.6;
 }
 
+/* Close Button */
 .close {
     position: absolute;
     top: 15px;
@@ -262,9 +197,9 @@ body {
 
 .close:hover {
     background-color: rgba(229, 9, 20, 0.7);
-}   
+}
 
-/* Button Styling */
+/* Buttons */
 button {
     background-color: #007bff;
     border: none;
@@ -283,28 +218,7 @@ button:active {
     background-color: #004085;
 }
 
-/* General Styling */
-body {
-    background-color: #121212;
-    color: #e1e1e1;
-    font-family: 'Libre Baskerville', serif;
-}
-
-.container {
-    padding-top: 30px;
-    padding-bottom: 50px;
-}
-
-/* Header Styling */
-.caveat-heading {
-    font-family: 'Protest Revolution', sans-serif;
-    font-size: 3.5rem;
-    color: #e50914;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    margin-bottom: 30px;
-}
-
-/* Search Controls */
+/* Search Bar */
 .input-group {
     margin-bottom: 30px;
 }
@@ -354,6 +268,7 @@ body {
 footer {
     background-color: #080808 !important;
     padding: 20px 0 !important;
+    text-align: center;
 }
 
 footer p {
@@ -374,5 +289,3 @@ footer a:hover {
     color: #e50914 !important;
     text-decoration: none;
 }
-
-
